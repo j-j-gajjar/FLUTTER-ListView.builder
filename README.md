@@ -1,16 +1,8 @@
-# micart
+# ListView.builder
 
-A new Flutter application.
+* Use Json
+* Use API 
+* Simple Animation
+* Gradient
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://raw.githubusercontent.com/j-j-gajjar/FLUTTER-ListView.builder/master/SCREENSHOTS/Screenshot_2020-08-29-10-51-40-232_clustersofttech.micart.jpg" height="400">  <img src="https://raw.githubusercontent.com/j-j-gajjar/FLUTTER-ListView.builder/master/SCREENSHOTS/Screenshot_2020-08-29-10-51-42-276_clustersofttech.micart.jpg" height="400"> 
