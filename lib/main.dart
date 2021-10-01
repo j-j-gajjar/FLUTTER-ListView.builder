@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  http.Response response;
+  http.Response? response;
   var jsondata;
   @override
   void initState() {
@@ -22,9 +22,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   getJsonData() async {
-    response = await http.get(
-        "https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail");
-    jsondata = jsonDecode(response.body)["drinks"];
+    response = await http.get(Uri.parse("https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail"));
+    jsondata = jsonDecode(response!.body)["drinks"];
     setState(() {});
   }
 
@@ -33,27 +32,16 @@ class _HomePageState extends State<HomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        //backgroundColor: Colors.pink,
         appBar: AppBar(
           backgroundColor: Colors.pink,
           elevation: 0.0,
-          title: Text(
-            "Json Example",
-            style: TextStyle(
-              fontFamily: 'ArchitectsDaughter-Regular',
-            ),
-          ),
+          title: Text("Json Example", style: TextStyle(fontFamily: 'ArchitectsDaughter-Regular')),
         ),
         body: response == null
-            ? Center(
-                child: CircularProgressIndicator(backgroundColor: Colors.white),
-              )
+            ? Center(child: CircularProgressIndicator(backgroundColor: Colors.white))
             : Container(
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(colors: [
-                    Colors.pink,
-                    Colors.orange,
-                  ]),
+                  gradient: LinearGradient(colors: [Colors.pink, Colors.orange]),
                 ),
                 child: ListView.builder(
                   itemCount: jsondata.length,
@@ -70,8 +58,7 @@ class _HomePageState extends State<HomePage> {
                           tag: jsondata[index]["idDrink"],
                           child: CircleAvatar(
                             backgroundColor: Colors.blueGrey,
-                            backgroundImage:
-                                NetworkImage(jsondata[index]["strDrinkThumb"]),
+                            backgroundImage: NetworkImage(jsondata[index]["strDrinkThumb"]),
                           ),
                         ),
                         title: Text(
@@ -91,12 +78,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DrinksData(jsondata[index]),
-                            ),
-                          );
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => DrinksData(jsondata[index])));
                         },
                       ),
                     );
